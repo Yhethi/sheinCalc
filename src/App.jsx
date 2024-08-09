@@ -12,6 +12,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [sumaTotal, setSumaTotal] = useState(0);
   const [user, setUser] = useState('');
+  const [excelExported, setExcelExported] = useState(false);
   
   
     const obtenerData = async () => {
@@ -60,9 +61,20 @@ function App() {
       <div className="d-flex">
         <p>SHEINCALC</p>
       </div>
-      <Calculator setSaveItems={setSaveItems} saveItems={saveItems} setCount={setCount} count={count} setUser={setUser} user={user} />
+      <Calculator setSaveItems={setSaveItems} saveItems={saveItems} setCount={setCount} count={count} setUser={setUser} user={user} setExcelExported={setExcelExported} />
       {charge &&
-        (<ListItems saveItems={saveItems} setSaveItems={setSaveItems} rows={rows} setDataModified={setDataModified} setRows={setRows} dataModified={dataModified} sumaTotal={sumaTotal} setSumaTotal={setSumaTotal} user={user} />)
+      (<ListItems saveItems={saveItems} 
+        setSaveItems={setSaveItems} 
+        rows={rows} 
+        setDataModified={setDataModified} 
+        setRows={setRows} 
+        dataModified={dataModified} 
+        sumaTotal={sumaTotal} 
+        setSumaTotal={setSumaTotal} 
+        user={user} 
+        setExcelExported={setExcelExported} 
+        excelExported={excelExported} 
+        />)
       }
     </div>
   )

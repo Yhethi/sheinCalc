@@ -19,7 +19,7 @@ import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 
 
-const ListItems = ({saveItems, setSaveItems, setRows, rows, dataModified, sumaTotal, setSumaTotal, user}) => {
+const ListItems = ({saveItems, setSaveItems, setRows, rows, dataModified, sumaTotal, setSumaTotal, user, excelExported, setExcelExported}) => {
 
 const [load, setLoad] = useState(false);
 
@@ -62,7 +62,7 @@ const [load, setLoad] = useState(false);
           }
         
           const exportToExcel = () => {
-
+            setExcelExported(true);
             const parsingData = new Array;
 
             saveItems.forEach((el)=>{
@@ -131,8 +131,15 @@ const [load, setLoad] = useState(false);
                   )}
                   <div className="right sendFiles_buttons">
                     <button className="sendFile_button" target="_blank" onClick={exportToExcel}><img src={excel} alt={excel} /><p>Crear Excel</p></button>
-                    <a className="sendFile_button" target="_blank" href="https://wa.me/+584263039980"><img src={whatsapp} alt={whatsapp} /><p>Enviar por Wsp</p></a>
-                    <a className="sendFile_button" target="_blank" href="mailto:josmar.coromoto@gmail.com?Subject=Hola%20quiero%20hacer%20este%20pedido"><img src={gmail} alt={gmail} /><p>Enviar por correo</p></a></div>
+                    {excelExported && 
+                    (
+                    <>
+                      <a className="sendFile_button" target="_blank" href="https://wa.me/+584263039980"><img src={whatsapp} alt={whatsapp} /><p>Enviar por Wsp</p></a>
+                      <a className="sendFile_button" target="_blank" href="mailto:josmar.coromoto@gmail.com?Subject=Hola%20quiero%20hacer%20este%20pedido"><img src={gmail} alt={gmail} /><p>Enviar por correo</p></a>
+                    </>                  
+                    )
+                    }
+                    </div>
                 </div>
                 )
   

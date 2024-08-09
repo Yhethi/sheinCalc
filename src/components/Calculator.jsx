@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user}) => {
+const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user, setExcelExported}) => {
     const [link, setLink] = useState('');
     const [amount, setAmount] = useState(0);
     const [cantidad, setCantidad] = useState(0);
@@ -66,6 +66,7 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user}) =
             <input type="text" className="inputs input_user" name="input_user" 
             onChange={(e)=>{
                 setUser(e.target.value);
+                setExcelExported(false);
             }}
             value={user}
             required
@@ -79,6 +80,7 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user}) =
                     setCantidad(1);
                 }
                 setLink(e.target.value);
+                setExcelExported(false);
             }}
             value={link}
             required
@@ -89,16 +91,30 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user}) =
             <input type="number" className="inputs amount_product" name="amount_product" 
             onChange={(e)=>{
                 setAmount(e.target.value);
+                setExcelExported(false);
             }}
+            onBlur={(e)=>{
+                if (amount.length === 0) {
+                    setAmount(0);
+                }
+            }
+            }
             value={amount}
         />
         </div>
         <div className="flex_item">
             <p>Cantidad</p>
-            <input type="number" className="inputs amount_product" name="amount_product" 
+            <input type="number" className="inputs cantidad_product" name="cantidad_product" 
             onChange={(e)=>{
                 setCantidad(e.target.value);
+                setExcelExported(false);
             }}
+            onBlur={(e)=>{
+                if (cantidad.length === 0) {
+                    setCantidad(0);
+                }
+            }
+            }
             value={cantidad}
         />
         </div> 
