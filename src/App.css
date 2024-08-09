@@ -1,0 +1,54 @@
+html{
+  /* background: #ddd; */
+}
+.calc_global{
+  display: flex;
+  flex-direction: column;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@font-face {
+  font-family: scheinSans;
+  src: url("./assets/fonts/otf/schein-schein-sans-400.otf") format("opentype");
+}
+
+@font-face {
+  font-family: scheinSlab;
+  src: url("./assets/fonts/otf/schein-schein-slab-400.otf") format("opentype");
+}
+
+.d-flex{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.d-flex p{
+  background: black;
+  color: white;
+  font-family: scheinSlab;
+  padding-inline: 18px;
+}

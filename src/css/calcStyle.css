@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calculator{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 80px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.calculator .d-flex{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.calculator .d-flex p{
+    background: black;
+    color: white;
+    font-family: scheinSlab;
+
+}
+.cardCalculator{
+    border: 1px solid #1e1e1e;
+    padding: 15px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.466);
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+}
+
+.cardCalculator::before{
+    content: "";
+    position: absolute;
+    background: black;
+    width: 10px;
+    height: 3000px;
+    left: 50%;
+    top: -1320px;
+    background: linear-gradient(to left, white,black,white);
+    animation: rotation 50s linear infinite;
+}
+@keyframes rotation {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        /* rotate: 0deg; */
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.cardCalculator::after{
+    content: "";
+    inset: 10px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+}
+.cardCalculator form{
+    z-index: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.cardCalculator form p{
+    font-family: scheinSans;
+
+}
+@media (max-width: 732px) {
+    .calculator{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+}
+
+.card
+
+.flex_item{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_item input{
+    width: 100%;
+    border: 1px solid #aaa;
+    padding: 10px;
+    border-radius: 10px;
+    background: #eee;
+}
+
+.flex_item p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex_item_center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.flex_item_center h2{
+    background: linear-gradient(to left,white,black,black,black,black,black,black,black,black,black,black,black,black,black,black,black,black,black,black,white);
+    text-transform: uppercase;
+    color: white;
+    padding: 0 20px;
+    text-align: center;
+    z-index: 1;
+    font-family: scheinSans;
+}
+.add_button{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    margin-top: 10px;
+    font-weight: 700;
+    font-family: scheinSans;
+}
+
+.add_button:hover{
+    transition-duration: 0.2s;
+    scale: 1.01;
+    background: black;
+    color: white;
+}
+
+.calculator d-flex{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
