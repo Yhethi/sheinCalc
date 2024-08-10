@@ -112,3 +112,10 @@ html{
   scale: 1.1;
   transition-duration: 0.3s;
 }
+
+.v_foot{
+  right: 1px; 
+  bottom: 0; 
+  position: absolute; 
+  font-size: 12px;
+}

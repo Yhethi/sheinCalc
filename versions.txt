@@ -1,0 +1,9 @@
+1.00
+- First Aplication
+
+1.01
+- Other features
+
+1.02
+- Fixed: total amount to fixed.
+- Added version control.

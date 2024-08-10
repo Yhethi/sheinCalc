@@ -90,6 +90,7 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user, se
         add=0;
         total = total+(total*0.25);
         total = total*cantidad;
+        total = parseFloat(total.toFixed(2));        
         
         let cadenaDividida = new Array;
         
