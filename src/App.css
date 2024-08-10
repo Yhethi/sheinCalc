@@ -52,3 +52,63 @@ html{
   font-family: scheinSlab;
   padding-inline: 18px;
 }
+
+@media (max-width: 350px) {
+  .nombre_project{
+    font-size: 40px;
+  }
+}
+
+
+
+.footer_text{
+  position: fixed;
+  background: black;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: scheinSlab;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.go_down svg{
+  position: fixed;
+  font-size: 50px;
+  bottom: 40px;
+  right: 10px;
+  text-align: center;
+  color: black;
+  font-family: scheinSlab;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  filter: drop-shadow(0px 0px 10px white);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.go_down svg:hover{
+  scale: 1.1;
+  transition-duration: 0.3s;
+}
+
+.go_up svg{
+  position: fixed;
+  font-size: 50px;
+  bottom: 100px;
+  right: 10px;
+  text-align: center;
+  color: black;
+  font-family: scheinSlab;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  filter: drop-shadow(0px 0px 10px white);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.go_up svg:hover{
+  scale: 1.1;
+  transition-duration: 0.3s;
+}

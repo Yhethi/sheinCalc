@@ -42,24 +42,6 @@ const [load, setLoad] = useState(false);
             setLoad(true);
           }, 1);
         }, [dataModified]);
-
-        const enviarEmail = ()=>{
-           
-          let obj = Object.assign({}, saveItems);
-          let templateParams = {
-            name: 'James',
-            notes: 'Check this out!',
-            message: obj
-          };
-          emailjs.send('service_43y9534', 'template_uuja9w9', templateParams).then(
-            (response) => {
-              console.log('SUCCESS!', response.status, response.text);
-            },
-            (error) => {
-              console.log('FAILED...', error);
-            },
-          );
-          }
         
           const exportToExcel = () => {
             setExcelExported(true);
@@ -68,6 +50,7 @@ const [load, setLoad] = useState(false);
             saveItems.forEach((el)=>{
               parsingData.push({
                 Nº: el.id,
+                Producto: el.name,
                 Direccion_Shein: el.link,
                 Valor: el.amount,
                 Cantidad: el.cantidad,
@@ -76,7 +59,7 @@ const [load, setLoad] = useState(false);
             });
 
             parsingData.push({
-              TotalProducto: 'T: '+sumaTotal
+              TotalProducto: 'T: $'+sumaTotal
             })
 
             const worksheet = XLSX.utils.json_to_sheet(parsingData);
@@ -129,6 +112,9 @@ const [load, setLoad] = useState(false);
                       </Table>
                     </TableContainer>
                   )}
+                  <div className="d_flex text_message">
+                    <p>Al crear el archivo, enviarlo por WhatsApp o por Correo Electronico presionando uno de los 2 botones correspondientes</p>
+                  </div>
                   <div className="right sendFiles_buttons">
                     <button className="sendFile_button" target="_blank" onClick={exportToExcel}><img src={excel} alt={excel} /><p>Crear Excel</p></button>
                     {excelExported && 
@@ -142,7 +128,6 @@ const [load, setLoad] = useState(false);
                     </div>
                 </div>
                 )
-  
-};
+            };
 
 export default ListItems;

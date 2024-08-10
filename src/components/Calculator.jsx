@@ -1,19 +1,76 @@
 import React, { useEffect } from "react";
 import '../css/calcStyle.css'
 import { useState } from 'react'
-
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { Store } from "react-notifications-component";
 
 const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user, setExcelExported}) => {
     const [link, setLink] = useState('');
     const [amount, setAmount] = useState(0);
     const [cantidad, setCantidad] = useState(0);
     const [weight, setWeight] = useState(0.0);
-    
+    const [nombreProducto, setNombreProducto] = useState('');
+
+    const notificationSuccess = () => Store.addNotification({
+        title: "Producto Añadido",
+        message: "",
+        type: "success",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeIn"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true
+        }
+    });
+
+    const notificationDanger = () => Store.addNotification({
+        title: "COLOCA LOS DATOS CORRECTOS",
+        message: "",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeIn"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true
+        }
+    });
+
+    const notificationAlert = () => Store.addNotification({
+        title: "COLOCA UN LINK DE SHEIN",
+        message: "",
+        type: "warning",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeIn"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true
+        }
+    });
+
+    const notificationAlertZero = () => Store.addNotification({
+        title: "COLOCA EL MONTO Y CANTIDAD CORRECTA",
+        message: "",
+        type: "warning",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeIn"],
+        dismiss: {
+          duration: 5000,
+          onScreen: true
+        }
+    });
+
+    function dividirCadena(cadenaADividir, separador) {
+        var arrayDeCadenas = cadenaADividir.split(separador);
+        return arrayDeCadenas;
+    }
+
     const addItem = (e)=>{
         e.preventDefault();
         
@@ -33,26 +90,83 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user, se
         add=0;
         total = total+(total*0.25);
         total = total*cantidad;
-
         
-        setSaveItems( 
-            [
-              ...saveItems,
-              { 
-                id: count,
-                link,
-                amount,
-                cantidad,
-                weight,
-                total,
+        let cadenaDividida = new Array;
+        
+        if (((link.includes('https:') || link.includes('http:')) && link.includes('shein')) && amount > 0 && cantidad > 0) {
+            
+            if (link.includes('https:')) {
+                cadenaDividida = dividirCadena(link, 'https:');
+                cadenaDividida[1] = 'https:'+cadenaDividida[1];
+            }else if (link.includes('http:')) {
+                cadenaDividida = dividirCadena(link, 'http:');
+                cadenaDividida[1] = 'http:'+cadenaDividida[1];
             }
-            ]
-          );
-          setCount(count+1);
-          setLink('');
-          setAmount(0);
-          setCantidad(0);
-          setWeight(0);
+            setSaveItems( 
+                [
+                  ...saveItems,
+                  { 
+                    id: count,
+                    name: nombreProducto,
+                    link: cadenaDividida[1],
+                    amount,
+                    cantidad,
+                    weight,
+                    total,
+                }
+                ]
+              );
+              notificationSuccess();
+              setCount(count+1);
+              setLink('');
+              setAmount(0);
+              setCantidad(0);
+              setWeight(0);
+              setNombreProducto('');
+        }else if (((link.includes('https:') || link.includes('http:')) && link.includes('shein')) && amount === 0 || cantidad === 0){
+            notificationAlertZero();
+        }else if (link.includes('https:') || link.includes('http:') && amount === 0){
+            notificationAlert();
+        }else{
+            notificationAlert();
+            notificationDanger();
+        }
+    }
+
+    const colocarValoresLink = ()=>{
+                let tomarUrl = new Array;
+                
+                    if (link.includes('https:')) {
+                        tomarUrl = dividirCadena(link, 'https:');
+                        tomarUrl[1] = 'https:'+tomarUrl[1];
+                    }else if (link.includes('http:')) {
+                        tomarUrl = dividirCadena(link, 'http:');
+                        tomarUrl[1] = 'http:'+tomarUrl[1];
+                    }
+                    console.log(tomarUrl, link);
+                    if (tomarUrl !== undefined) {
+                        setLink(tomarUrl[1]);
+                    }
+                    let tomarNombre = new Array;
+                    let formatearNombre = new Array;
+                    if (link.includes('https:')) {
+                        tomarNombre = dividirCadena(link, 'https:');
+                         formatearNombre = dividirCadena(tomarNombre[0], 'He descubierto los artículos más increíbles en SHEIN.com, ¡ve y echa un vistazo!');
+                    }else if (link.includes('http:')) {
+                        tomarNombre = dividirCadena(link, 'http:');
+                         formatearNombre = dividirCadena(tomarNombre[0], 'He descubierto los artículos más increíbles en SHEIN.com, ¡ve y echa un vistazo!');
+                    }else{
+                        tomarNombre[0] = "Nombre no identificado";
+                    }
+                    if (tomarNombre[0].length === 0) {
+                        tomarNombre[0] = "Nombre no identificado";
+                    }
+
+                    if (tomarNombre[0] === "Nombre no identificado") {
+                        setNombreProducto(tomarNombre[0]);       
+                    }else{
+                        setNombreProducto(formatearNombre[0]);       
+                    }
     }
 
   return <div className="calculator">
@@ -82,9 +196,33 @@ const Calculator = ({setSaveItems, saveItems, count, setCount, setUser, user, se
                 setLink(e.target.value);
                 setExcelExported(false);
             }}
+            onKeyUp={(e)=>{
+                if ((link.includes('https:') || link.includes('http:')) && link.includes('shein')) {
+                }else{
+                    setTimeout(() => {
+                        setLink('')
+                    }, 10);
+                }
+            }}
+            onBlur={colocarValoresLink}
+            onClick={(e)=>{
+                setLink('');
+            }}
+            onPaste={()=>{
+                if ((link.includes('https:') || link.includes('http:')) && link.includes('shein')) {
+                    setTimeout(() => {
+                        document.getElementById('name_product').focus();
+                    }, 100);
+                }
+               
+            }}
             value={link}
             required
         />
+        </div>
+        <div className="flex_item">
+            <p>Nombre Producto</p>
+            <input type="text" id="name_product" className="inputs name_product" name="name_product" value={nombreProducto} readOnly/>
         </div> 
         <div className="flex_item">
             <p>Monto $</p>

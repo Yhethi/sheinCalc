@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .tablaGlobal table{
@@ -92,6 +93,7 @@
     gap: 6px;
     margin-top: 10px;
     flex-wrap: wrap;
+    height: 40px;
 }
 
 .sendFile_button{
@@ -118,7 +120,7 @@
 }
 
 .sendFile_button:hover{
-    margin-top: 10px;
+    margin-top: -5px;
     border: 1px solid black;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -126,6 +128,16 @@
 
 .sendFile_button:hover img{
     width: 45px !important;
-    margin-top: -20px;
+    margin-top: -5px;
     transition-duration: 0.5s;
+}
+
+.text_message{
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  background: black;
+  color: white;
+  font-family: scheinSans;
+  margin-top: 10px;
 }
