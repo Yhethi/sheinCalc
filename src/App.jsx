@@ -92,9 +92,9 @@ const scrollToTop = () => {
         excelExported={excelExported} 
         />)
       }
-      <div className='go_up' onClick={scrollToTop}><FaArrowCircleUp/></div>
-      <div className='go_down' onClick={scrollToBottom}><FaArrowCircleDown/></div>
-      <div className='footer_text'>Hecho por Yhethi +584124706698 <p className='v_foot'>v1.02</p></div>
+      <div className='go_up zIndexUp' onClick={scrollToTop}><FaArrowCircleUp/></div>
+      <div className='go_down zIndexUp' onClick={scrollToBottom}><FaArrowCircleDown/></div>
+      <div className='footer_text zIndexUp'>Hecho por Yhethi +584124706698 <p className='v_foot zIndexUp'>v1.03</p></div>
     </div>
   )
 }

@@ -119,3 +119,7 @@ html{
   position: absolute; 
   font-size: 12px;
 }
+
+.zIndexUp{
+  z-index: 100;
+}

@@ -7,3 +7,6 @@
 1.02
 - Fixed: total amount to fixed.
 - Added version control.
+
+1.03
+- Footer and arrows ZindexUp
