@@ -18,14 +18,14 @@ const Calculator = ({
 }) => {
   const [link, setLink] = useState("");
   const [amount, setAmount] = useState(0);
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState(1);
   const [weight, setWeight] = useState(0.0);
   const [nombreProducto, setNombreProducto] = useState("");
   const [totalFormulaBasica, setTotalFormulaBasica] = useState(0);
 
   const notificationSuccess = () =>
     Store.addNotification({
-      title: "Producto Añadido",
+      title: "PRODUCTO AÑADIDO",
       message: "",
       type: "success",
       insert: "top",
@@ -37,7 +37,20 @@ const Calculator = ({
         onScreen: true,
       },
     });
-
+  const notificationSuccessBasic = () =>
+    Store.addNotification({
+      title: "CALCULO AÑADIDO",
+      message: "",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeIn"],
+      dismiss: {
+        duration: 5000,
+        onScreen: true,
+      },
+    });
   const notificationDanger = () =>
     Store.addNotification({
       title: "COLOCA LOS DATOS CORRECTOS",
@@ -193,10 +206,10 @@ const Calculator = ({
         },
       ]);
 
-      notificationSuccess();
+      notificationSuccessBasic();
       setCount(count + 1);
       setAmount(0);
-      setCantidad(0);
+      setCantidad(1);
     } else if (amount === 0 || cantidad === 0) {
       notificationAlertZero();
     } else {

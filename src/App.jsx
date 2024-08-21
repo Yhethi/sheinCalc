@@ -40,10 +40,10 @@ function App() {
         setRows(saveBasicItems);
         setSumaTotal(0);
         let doSuma2 = 0;
-        saveBasicItems.forEach((element) => {
+        saveBasicItems.forEach((element) => {          
           doSuma2 = doSuma2 + element.total;
         });
-        setSumaTotal(doSuma2);
+        setSumaTotal(parseFloat(doSuma2).toFixed(2));
       } else {
         setCharge(false);
       }
@@ -73,7 +73,7 @@ function App() {
         saveItems.forEach((element) => {
           doSuma2 = doSuma2 + element.total;
         });
-        setSumaTotal(doSuma2);
+        setSumaTotal(parseFloat(doSuma2).toFixed(2));
       } else {
         setCharge(false);
       }
@@ -164,7 +164,7 @@ function App() {
         <FaArrowCircleDown />
       </div>
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.04</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.05</p>
       </div>
     </div>
   );

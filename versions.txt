@@ -14,3 +14,7 @@
 1.04
 - Calculadora basica y avanzada por separado
 - Otros ajustes en textos y más.
+
+1.05
+- Mensaje success para el basic
+- Total con muchos digitos fixeado en basic y avanzada
