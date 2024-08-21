@@ -18,3 +18,6 @@
 1.05
 - Mensaje success para el basic
 - Total con muchos digitos fixeado en basic y avanzada
+
+1.051
+- Titulo del proyecto de "Productos Shein" a "Calculadora Shein"

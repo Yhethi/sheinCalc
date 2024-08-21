@@ -164,7 +164,7 @@ function App() {
         <FaArrowCircleDown />
       </div>
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.05</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.051</p>
       </div>
     </div>
   );
