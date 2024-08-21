@@ -10,3 +10,7 @@
 
 1.03
 - Footer and arrows ZindexUp
+
+1.04
+- Calculadora basica y avanzada por separado
+- Otros ajustes en textos y más.
