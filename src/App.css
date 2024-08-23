@@ -1,7 +1,7 @@
-html{
+html {
   /* background: #ddd; */
 }
-.calc_global{
+.calc_global {
   display: flex;
   flex-direction: column;
 }
@@ -37,7 +37,7 @@ html{
   src: url("./assets/fonts/otf/schein-schein-slab-400.otf") format("opentype");
 }
 
-.d-flex{
+.d-flex {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -46,22 +46,14 @@ html{
   margin-top: 10px;
 }
 
-.d-flex p{
+.d-flex p {
   background: black;
   color: white;
   font-family: scheinSlab;
   padding-inline: 18px;
 }
 
-@media (max-width: 350px) {
-  .nombre_project{
-    font-size: 40px;
-  }
-}
-
-
-
-.footer_text{
+.footer_text {
   position: fixed;
   background: black;
   bottom: 0;
@@ -71,55 +63,70 @@ html{
   font-family: scheinSlab;
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-.go_down svg{
-  position: fixed;
-  font-size: 50px;
-  bottom: 40px;
-  right: 10px;
-  text-align: center;
-  color: black;
-  font-family: scheinSlab;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  filter: drop-shadow(0px 0px 10px white);
-  cursor: pointer;
-  transition-duration: 0.3s;
-}
-
-.go_down svg:hover{
-  scale: 1.1;
-  transition-duration: 0.3s;
-}
-
-.go_up svg{
-  position: fixed;
-  font-size: 50px;
-  bottom: 100px;
-  right: 10px;
-  text-align: center;
-  color: black;
-  font-family: scheinSlab;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  filter: drop-shadow(0px 0px 10px white);
-  cursor: pointer;
-  transition-duration: 0.3s;
-}
-
-.go_up svg:hover{
-  scale: 1.1;
-  transition-duration: 0.3s;
-}
-
-.v_foot{
-  right: 1px; 
-  bottom: 0; 
-  position: absolute; 
+  text-align: left;
   font-size: 12px;
 }
 
-.zIndexUp{
+.go_down svg {
+  bottom: 20px;
+  right: 10px;
+}
+
+.go_down svg:hover {
+  scale: 1.1;
+  transition-duration: 0.3s;
+}
+
+.go_up svg {
+  bottom: 65px;
+  right: 10px;
+}
+
+.go_up svg:hover {
+  scale: 1.1;
+  transition-duration: 0.3s;
+}
+
+.arrowsTravel svg {
+  font-size: 40px;
+  position: fixed;
+  text-align: center;
+  color: black;
+  font-family: scheinSlab;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  filter: drop-shadow(0px 0px 10px white);
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+@media (max-width: 350px) {
+  .nombre_project {
+    font-size: 40px;
+  }
+}
+@media (max-width: 450px) {
+  .arrowsTravel svg {
+    font-size: 30px !important;
+  }
+  .go_down svg {
+    bottom: 20px;
+    right: 10px;
+  }
+  
+  .go_up svg {
+    bottom: 50px;
+    right: 10px;
+  }
+}
+
+.v_foot {
+  right: 1px;
+  bottom: 0;
+  position: absolute;
+  font-size: 12px;
+}
+
+.zIndexUp {
   z-index: 100;
 }

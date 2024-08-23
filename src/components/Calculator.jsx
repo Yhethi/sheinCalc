@@ -15,6 +15,9 @@ const Calculator = ({
   basic,
   setSaveBasicItems,
   saveBasicItems,
+  priceBs,
+  totalBs,
+  setTotalBs,
 }) => {
   const [link, setLink] = useState("");
   const [amount, setAmount] = useState(0);
@@ -203,12 +206,14 @@ const Calculator = ({
           amount,
           cantidad,
           total,
+          totalBs,
         },
       ]);
 
       notificationSuccessBasic();
       setCount(count + 1);
       setAmount(0);
+      setTotalBs(0);
       setCantidad(1);
     } else if (amount === 0 || cantidad === 0) {
       notificationAlertZero();
@@ -262,6 +267,7 @@ const Calculator = ({
 
   const handleChangeBasic = (e) => {
     setAmount(0);
+    setTotalBs(0);
     if (!e) {
       setCantidad(0);
       setLink("");
@@ -294,6 +300,8 @@ const Calculator = ({
       total = total * cantidad;
       total = parseFloat(total.toFixed(2));
       setTotalFormulaBasica(total);
+      let dollarBs = total * priceBs;
+      setTotalBs(dollarBs.toFixed(2));
     }
   };
 
@@ -343,10 +351,14 @@ const Calculator = ({
                   onChange={(e) => {
                     setAmount(e.target.value.replace(/^(0+)/g, ""));
                     setExcelExported(false);
+                    if (e.target.value.length === 0) {
+                      setTotalBs(0);
+                    }
                   }}
                   onBlur={(e) => {
                     if (amount.length === 0) {
                       setAmount(0);
+                      setTotalBs(0);
                     }
                   }}
                   value={amount}
@@ -364,7 +376,7 @@ const Calculator = ({
                   }}
                   onBlur={(e) => {
                     if (cantidad.length === 0) {
-                      setCantidad(0);
+                      setCantidad(1);
                     }
                   }}
                   value={cantidad}
@@ -375,6 +387,10 @@ const Calculator = ({
               </button>
               <div className="totalFormulaBasica">
                 <h1>${totalFormulaBasica}</h1>
+                <div className="other_currency">
+                  <p>Bs: {totalBs}</p>
+                  {/* <p>Pesos: xxxx</p> */}
+                </div>
               </div>
             </form>
           </>

@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"yarn dev:vite\" \"yarn dev:python\"",
+    "dev:vite": "vite",
+    "dev:python": "python scrape.py",
     "build": "vite build",
+    "serve": "vite preview",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -15,13 +18,19 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "axios": "^1.7.4",
+    "cheerio": "^1.0.0",
+    "concurrently": "^8.2.2",
+    "express": "^4.19.2",
     "file-saver": "^2.0.5",
+    "nodemon": "^3.1.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-notifications-component": "^4.0.1",
     "sheetjs-style": "^0.15.8",
     "styled-components": "^6.1.12",
+    "vite": "^4.0.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

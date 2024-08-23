@@ -8,6 +8,8 @@ import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { FaArrowCircleUp } from "react-icons/fa";
+import PriceFetcher from "./components/PriceFetcher";
+import ProductImage from "./components/ProductImage";
 
 function App() {
   const [charge, setCharge] = useState(false);
@@ -17,9 +19,12 @@ function App() {
   const [dataModified, setDataModified] = useState(false);
   const [count, setCount] = useState(0);
   const [sumaTotal, setSumaTotal] = useState(0);
+  const [sumaTotalBs, setSumaTotalBs] = useState(0);
   const [user, setUser] = useState("");
   const [excelExported, setExcelExported] = useState(false);
   const [basic, setBasic] = useState(true);
+  const [priceBs, setPriceBs] = useState(0);
+  const [totalBs, setTotalBs] = useState(0);
 
   const obtenerData = () => {
     setCharge(false);
@@ -31,7 +36,7 @@ function App() {
         saveBasicItems.forEach((el) => {
           return setRows([
             ...rows,
-            createData(el.id, el.cantidad, el.amount, el.total),
+            createData(el.id, el.cantidad, el.amount, el.total, el.totalBs),
           ]);
         });
         setTimeout(() => {
@@ -40,10 +45,14 @@ function App() {
         setRows(saveBasicItems);
         setSumaTotal(0);
         let doSuma2 = 0;
-        saveBasicItems.forEach((element) => {          
+        let doSumaBs = 0;
+        // console.log("saveBasicItems: ", saveBasicItems);
+        saveBasicItems.forEach((element) => {
           doSuma2 = doSuma2 + element.total;
+          doSumaBs = doSumaBs + parseFloat(element.totalBs);
         });
         setSumaTotal(parseFloat(doSuma2).toFixed(2));
+        setSumaTotalBs(parseFloat(doSumaBs).toFixed(2));
       } else {
         setCharge(false);
       }
@@ -120,6 +129,9 @@ function App() {
         setExcelExported={setExcelExported}
         setBasic={setBasic}
         basic={basic}
+        priceBs={priceBs}
+        totalBs={totalBs}
+        setTotalBs={setTotalBs}
       />
       {(charge && !basic && (
         <ListItems
@@ -131,10 +143,13 @@ function App() {
           setRows={setRows}
           dataModified={dataModified}
           sumaTotal={sumaTotal}
+          sumaTotalBs={sumaTotalBs}
           setSumaTotal={setSumaTotal}
+          setSumaTotalBs={setSumaTotalBs}
           user={user}
           setExcelExported={setExcelExported}
           excelExported={excelExported}
+          priceBs={priceBs}
         />
       )) ||
         (charge && basic && (
@@ -150,21 +165,30 @@ function App() {
               setRows={setRows}
               dataModified={dataModified}
               sumaTotal={sumaTotal}
+              sumaTotalBs={sumaTotalBs}
               setSumaTotal={setSumaTotal}
+              setSumaTotalBs={setSumaTotalBs}
               user={user}
               setExcelExported={setExcelExported}
               excelExported={excelExported}
+              priceBs={priceBs}
             />
           </>
         ))}
-      <div className="go_up zIndexUp" onClick={scrollToTop}>
+      <div className="arrowsTravel go_up zIndexUp" onClick={scrollToTop}>
         <FaArrowCircleUp />
       </div>
-      <div className="go_down zIndexUp" onClick={scrollToBottom}>
+      <div className="arrowsTravel go_down zIndexUp" onClick={scrollToBottom}>
         <FaArrowCircleDown />
       </div>
+      <PriceFetcher
+        sumaTotal={sumaTotal}
+        priceBs={priceBs}
+        setPriceBs={setPriceBs}
+      />
+      {/* <ProductImage/> */}
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.051</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.06</p>
       </div>
     </div>
   );

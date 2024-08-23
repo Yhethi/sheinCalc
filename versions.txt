@@ -1,23 +1,27 @@
 1.00
-- First Aplication
+- First Aplication.
 
 1.01
-- Other features
+- Other features.
 
 1.02
 - Fixed: total amount to fixed.
 - Added version control.
 
 1.03
-- Footer and arrows ZindexUp
+- Footer and arrows ZindexUp.
 
 1.04
-- Calculadora basica y avanzada por separado
+- Calculadora basica y avanzada por separado.
 - Otros ajustes en textos y más.
 
 1.05
-- Mensaje success para el basic
-- Total con muchos digitos fixeado en basic y avanzada
+- Mensaje success para el basic.
+- Total con muchos digitos fixeado en basic y avanzada.
 
 1.051
-- Titulo del proyecto de "Productos Shein" a "Calculadora Shein"
+- Titulo del proyecto de "Productos Shein" a "Calculadora Shein".
+
+1.06
+- Obtencion de data price VES e integrandola en la calculadora basica, con python.
+- Flechas reducidas de tamaño.

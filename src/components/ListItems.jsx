@@ -28,36 +28,22 @@ const ListItems = ({
   dataModified,
   sumaTotal,
   setSumaTotal,
+  sumaTotalBs,
+  setSumaTotalBs,
   user,
   excelExported,
   setExcelExported,
   basic,
+  priceBs,
 }) => {
   const [load, setLoad] = useState(false);
 
   const deleteProduct = (id) => {
-    let doSuma = 0;
-    if (basic) {
       const newArray = saveBasicItems.filter((item, index) => {
         return item.id !== id;
       });
-      newArray.forEach((element) => {
-        doSuma = doSuma + element.total;
-        setSumaTotal(doSuma);
-      });
       setSaveBasicItems(newArray);
       setRows(newArray);
-    } else {
-      const newArray = saveItems.filter((item, index) => {
-        return item.id !== id;
-      });
-      newArray.forEach((element) => {
-        doSuma = doSuma + element.total;
-        setSumaTotal(doSuma);
-      });
-      setSaveItems(newArray);
-      setRows(newArray);
-    }
   };
 
   useEffect(() => {
@@ -161,6 +147,7 @@ const ListItems = ({
                     {/* <TableCell>#</TableCell> */}
                     <TableCell align="right">Cantidad</TableCell>
                     <TableCell align="right">Total $</TableCell>
+                    <TableCell align="right">Total Bs</TableCell>
                     <TableCell align="right"></TableCell>
                   </TableRow>
                 </TableHead>
@@ -172,7 +159,8 @@ const ListItems = ({
                     >
                       {/* <TableCell align="left">{row.id}</TableCell> */}
                       <TableCell align="right">{row.cantidad}</TableCell>
-                      <TableCell align="right">${row.total}</TableCell>
+                      <TableCell align="right">{row.total}</TableCell>
+                      <TableCell align="right">{row.totalBs}</TableCell>
                       <TableCell align="right">
                         <FaRegTrashAlt
                           onMouseUp={(e) => {
@@ -189,6 +177,10 @@ const ListItems = ({
                     <TableCell align="right">
                       <h3>${sumaTotal}</h3>
                     </TableCell>
+                    <TableCell align="right">
+                      <h3>Bs{sumaTotalBs} </h3>
+                    </TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableFooter>
               </Table>
