@@ -25,3 +25,6 @@
 1.06
 - Obtencion de data price VES e integrandola en la calculadora basica, con python.
 - Flechas reducidas de tamaño.
+
+1.061
+- Manual Bs
