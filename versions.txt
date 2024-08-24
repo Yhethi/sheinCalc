@@ -40,3 +40,6 @@
 
 1.065
 - vite.config
+
+1.066
+- vite.config
