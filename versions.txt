@@ -34,3 +34,6 @@
 
 1.063
 - Python testing
+
+1.064
+- vite.config
