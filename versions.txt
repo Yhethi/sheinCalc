@@ -48,7 +48,10 @@
 - vercel.json
 
 1.068
-- new index.py
+- new priceVes.py
 
 1.069
 - Test server with PriceFetcher
+
+1.07
+- Server working with python VES
