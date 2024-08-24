@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \"yarn dev:python\"",
     "dev:vite": "vite",
-    "dev:python": "python scrape.py",
+    "dev:python": "python api/scrape.py",
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint .",
