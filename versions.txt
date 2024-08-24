@@ -43,3 +43,6 @@
 
 1.066
 - vite.config
+
+1.067
+- vercel.json

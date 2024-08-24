@@ -190,7 +190,7 @@ function App() {
       {/* <ProductImage/> */}
       <HelloWorld />
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.066</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.067</p>
       </div>
     </div>
   );
