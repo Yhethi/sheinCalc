@@ -8,23 +8,33 @@ const PriceFetcher = ({ sumaTotal, priceBs, setPriceBs }) => {
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        // const { data } = await axios.get("https://shein-calc.vercel.app/api/price");
-        const { data } = await axios.get("http://localhost:5001/api/price");
-        console.log(data);
-        // const data = 43.8;
-        let suma = 0;
-        suma = parseFloat(data + 2.3);
-        setPriceBs(suma); // Esto debería actualizar el estado con el nuevo valor
+        const { data } = await axios.get("/api/prices");
+        // const { data } = await axios.get("http://localhost:5000/api/prices");
+        console.log(data.price);
+        // Suponiendo que la respuesta es un objeto como { price: "43.8" }
+        // Asegúrate de que data.price es un número y está bien formateado
+        let precio = parseFloat(data.price);
+        if (!isNaN(precio)) {
+          let suma = precio + 1;
+          setPriceBs(suma); // Actualiza el estado con el nuevo valor
+        } else {
+          console.error("Invalid price data:", data.price);
+        }
       } catch (error) {
         console.error("Error fetching price:", error);
       }
     };
-    fetchPrice();
-  }, [refreshPrice]);
 
-  // setInterval(() => {
-  //   setRefreshPrice(!refreshPrice);
-  // }, 10000);
+    fetchPrice();
+
+    // Opcional: Actualiza el precio cada 10 segundos
+    const interval = setInterval(() => {
+      setRefreshPrice((prev) => !prev);
+    }, 10000);
+
+    // Limpia el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval);
+  }, [refreshPrice]);
 
   return <></>;
 };

@@ -49,3 +49,6 @@
 
 1.068
 - new index.py
+
+1.069
+- Test server with PriceFetcher
