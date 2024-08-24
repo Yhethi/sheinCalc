@@ -8,8 +8,8 @@ const PriceFetcher = ({ sumaTotal, priceBs, setPriceBs }) => {
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        const { data } = await axios.get("https://shein-calc.vercel.app/api/price");
-        // const { data } = await axios.get("http://localhost:5001/api/price");
+        // const { data } = await axios.get("https://shein-calc.vercel.app/api/price");
+        const { data } = await axios.get("http://localhost:5001/api/price");
         console.log(data);
         // const data = 43.8;
         let suma = 0;

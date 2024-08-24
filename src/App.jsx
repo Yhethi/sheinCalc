@@ -10,6 +10,7 @@ import { FaArrowCircleDown } from "react-icons/fa";
 import { FaArrowCircleUp } from "react-icons/fa";
 import PriceFetcher from "./components/PriceFetcher";
 import ProductImage from "./components/ProductImage";
+import HelloWorld from "./components/HelloWorld";
 
 function App() {
   const [charge, setCharge] = useState(false);
@@ -187,8 +188,9 @@ function App() {
         setPriceBs={setPriceBs}
       />
       {/* <ProductImage/> */}
+      <HelloWorld />
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.062</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.063</p>
       </div>
     </div>
   );
