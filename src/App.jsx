@@ -20,11 +20,14 @@ function App() {
   const [count, setCount] = useState(0);
   const [sumaTotal, setSumaTotal] = useState(0);
   const [sumaTotalBs, setSumaTotalBs] = useState(0);
+  const [sumaTotalPesos, setSumaTotalPesos] = useState(0);
   const [user, setUser] = useState("");
   const [excelExported, setExcelExported] = useState(false);
   const [basic, setBasic] = useState(true);
   const [priceBs, setPriceBs] = useState(0);
+  const [pricePesos, setPricePesos] = useState(0);
   const [totalBs, setTotalBs] = useState(0);
+  const [totalPesos, setTotalPesos] = useState(0);
 
   const obtenerData = () => {
     setCharge(false);
@@ -36,7 +39,14 @@ function App() {
         saveBasicItems.forEach((el) => {
           return setRows([
             ...rows,
-            createData(el.id, el.cantidad, el.amount, el.total, el.totalBs),
+            createData(
+              el.id,
+              el.cantidad,
+              el.amount,
+              el.total,
+              el.totalBs,
+              el.totalPesos
+            ),
           ]);
         });
         setTimeout(() => {
@@ -46,13 +56,16 @@ function App() {
         setSumaTotal(0);
         let doSuma2 = 0;
         let doSumaBs = 0;
+        let doSumaPesos = 0;
         // console.log("saveBasicItems: ", saveBasicItems);
         saveBasicItems.forEach((element) => {
           doSuma2 = doSuma2 + element.total;
           doSumaBs = doSumaBs + parseFloat(element.totalBs);
+          doSumaPesos = doSumaPesos + parseFloat(element.totalPesos);
         });
         setSumaTotal(parseFloat(doSuma2).toFixed(2));
         setSumaTotalBs(parseFloat(doSumaBs).toFixed(2));
+        setSumaTotalPesos(parseInt(doSumaPesos));
       } else {
         setCharge(false);
       }
@@ -132,6 +145,8 @@ function App() {
         priceBs={priceBs}
         totalBs={totalBs}
         setTotalBs={setTotalBs}
+        totalPesos={totalPesos}
+        setTotalPesos={setTotalPesos}
       />
       {(charge && !basic && (
         <ListItems
@@ -150,6 +165,9 @@ function App() {
           setExcelExported={setExcelExported}
           excelExported={excelExported}
           priceBs={priceBs}
+          totalPesos={totalPesos}
+          setTotalPesos={setTotalPesos}
+          sumaTotalPesos={sumaTotalPesos}
         />
       )) ||
         (charge && basic && (
@@ -172,6 +190,9 @@ function App() {
               setExcelExported={setExcelExported}
               excelExported={excelExported}
               priceBs={priceBs}
+              totalPesos={totalPesos}
+              setTotalPesos={setTotalPesos}
+              sumaTotalPesos={sumaTotalPesos}
             />
           </>
         ))}
@@ -186,9 +207,9 @@ function App() {
         priceBs={priceBs}
         setPriceBs={setPriceBs}
       />
-      {/* <ProductImage/> */}      
+      {/* <ProductImage/> */}
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.07</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.08</p>
       </div>
     </div>
   );

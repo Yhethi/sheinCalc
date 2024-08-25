@@ -35,15 +35,18 @@ const ListItems = ({
   setExcelExported,
   basic,
   priceBs,
+  totalPesos,
+  setTotalPesos,
+  sumaTotalPesos,
 }) => {
   const [load, setLoad] = useState(false);
 
   const deleteProduct = (id) => {
-      const newArray = saveBasicItems.filter((item, index) => {
-        return item.id !== id;
-      });
-      setSaveBasicItems(newArray);
-      setRows(newArray);
+    const newArray = saveBasicItems.filter((item, index) => {
+      return item.id !== id;
+    });
+    setSaveBasicItems(newArray);
+    setRows(newArray);
   };
 
   useEffect(() => {
@@ -145,9 +148,10 @@ const ListItems = ({
                 <TableHead>
                   <TableRow>
                     {/* <TableCell>#</TableCell> */}
-                    <TableCell align="right">Cantidad</TableCell>
+                    <TableCell align="right">Cnt.</TableCell>
                     <TableCell align="right">Total $</TableCell>
                     <TableCell align="right">Total Bs</TableCell>
+                    <TableCell align="right">Total Pesos</TableCell>
                     <TableCell align="right"></TableCell>
                   </TableRow>
                 </TableHead>
@@ -161,6 +165,7 @@ const ListItems = ({
                       <TableCell align="right">{row.cantidad}</TableCell>
                       <TableCell align="right">{row.total}</TableCell>
                       <TableCell align="right">{row.totalBs}</TableCell>
+                      <TableCell align="right">{row.totalPesos}</TableCell>
                       <TableCell align="right">
                         <FaRegTrashAlt
                           onMouseUp={(e) => {
@@ -178,7 +183,10 @@ const ListItems = ({
                       <h3>${sumaTotal}</h3>
                     </TableCell>
                     <TableCell align="right">
-                      <h3>Bs{sumaTotalBs} </h3>
+                      <h3>Bs.{sumaTotalBs} </h3>
+                    </TableCell>
+                    <TableCell>
+                      <h3>COD {sumaTotalPesos}</h3>
                     </TableCell>
                     <TableCell></TableCell>
                   </TableRow>

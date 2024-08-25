@@ -18,6 +18,8 @@ const Calculator = ({
   priceBs,
   totalBs,
   setTotalBs,
+  totalPesos,
+  setTotalPesos,
 }) => {
   const [link, setLink] = useState("");
   const [amount, setAmount] = useState(0);
@@ -207,6 +209,7 @@ const Calculator = ({
           cantidad,
           total,
           totalBs,
+          totalPesos,
         },
       ]);
 
@@ -214,6 +217,7 @@ const Calculator = ({
       setCount(count + 1);
       setAmount(0);
       setTotalBs(0);
+      setTotalPesos(0);
       setCantidad(1);
     } else if (amount === 0 || cantidad === 0) {
       notificationAlertZero();
@@ -268,6 +272,7 @@ const Calculator = ({
   const handleChangeBasic = (e) => {
     setAmount(0);
     setTotalBs(0);
+    setTotalPesos(0);
     if (!e) {
       setCantidad(0);
       setLink("");
@@ -301,7 +306,9 @@ const Calculator = ({
       total = parseFloat(total.toFixed(2));
       setTotalFormulaBasica(total);
       let dollarBs = total * priceBs;
+      let dollarPesos = total * 4000;
       setTotalBs(dollarBs.toFixed(2));
+      setTotalPesos(dollarPesos);
     }
   };
 
@@ -353,12 +360,14 @@ const Calculator = ({
                     setExcelExported(false);
                     if (e.target.value.length === 0) {
                       setTotalBs(0);
+                      setTotalPesos(0);
                     }
                   }}
                   onBlur={(e) => {
                     if (amount.length === 0) {
                       setAmount(0);
                       setTotalBs(0);
+                      setTotalPesos(0);
                     }
                   }}
                   value={amount}
@@ -389,7 +398,7 @@ const Calculator = ({
                 <h1>${totalFormulaBasica}</h1>
                 <div className="other_currency">
                   <p>Bs: {totalBs}</p>
-                  {/* <p>Pesos: xxxx</p> */}
+                  <p>Pesos: {totalPesos} </p>
                 </div>
               </div>
             </form>

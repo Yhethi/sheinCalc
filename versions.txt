@@ -55,3 +55,6 @@
 
 1.07
 - Server working with python VES
+
+1.08
+- Added Colombian Currency to table
