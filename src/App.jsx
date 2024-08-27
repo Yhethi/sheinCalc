@@ -9,7 +9,6 @@ import "react-notifications-component/dist/theme.css";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { FaArrowCircleUp } from "react-icons/fa";
 import PriceFetcher from "./components/PriceFetcher";
-import ProductImage from "./components/ProductImage";
 
 function App() {
   const [charge, setCharge] = useState(false);
@@ -206,10 +205,9 @@ function App() {
         sumaTotal={sumaTotal}
         priceBs={priceBs}
         setPriceBs={setPriceBs}
-      />
-      {/* <ProductImage/> */}
+      />      
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.08</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.09</p>
       </div>
     </div>
   );

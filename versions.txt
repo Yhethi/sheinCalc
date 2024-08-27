@@ -58,3 +58,7 @@
 
 1.08
 - Added Colombian Currency to table
+
+1.09
+- Precio real del producto añadido a la tabla en rojo y tachado.
+- Campo nombre comentado (Calc. Avanzada).

@@ -406,8 +406,8 @@ const Calculator = ({
         )) || (
           <>
             <form action="#" onSubmit={addItem}>
-              <div className="flex_item">
-                <p>Tu Nombre</p>
+              {/* <div className="flex_item">
+                <p>Nombre (no obligatorio)</p>
                 <input
                   type="text"
                   className="inputs input_user"
@@ -419,7 +419,7 @@ const Calculator = ({
                   value={user}
                   required
                 />
-              </div>
+              </div> */}
               <div className="flex_item">
                 <p>Link del Producto</p>
                 <input

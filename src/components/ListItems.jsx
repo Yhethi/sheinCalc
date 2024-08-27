@@ -118,7 +118,10 @@ const ListItems = ({
                     </a>
                   </TableCell>
                   <TableCell align="right">{row.cantidad}</TableCell>
-                  <TableCell align="right">${row.total}</TableCell>
+                  <TableCell align="right totalAmount">
+                    <div className="amountShow"> {row.amount} </div>
+                    <div>{row.total}</div>
+                  </TableCell>
                   <TableCell align="right">
                     <FaRegTrashAlt
                       onMouseUp={(e) => {
@@ -163,7 +166,10 @@ const ListItems = ({
                     >
                       {/* <TableCell align="left">{row.id}</TableCell> */}
                       <TableCell align="right">{row.cantidad}</TableCell>
-                      <TableCell align="right">{row.total}</TableCell>
+                      <TableCell align="right totalAmount">
+                        <div className="amountShow"> {row.amount} </div>
+                        <div>{row.total}</div>
+                      </TableCell>
                       <TableCell align="right">{row.totalBs}</TableCell>
                       <TableCell align="right">{row.totalPesos}</TableCell>
                       <TableCell align="right">
