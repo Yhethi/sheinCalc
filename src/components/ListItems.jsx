@@ -166,7 +166,7 @@ const ListItems = ({
                     >
                       {/* <TableCell align="left">{row.id}</TableCell> */}
                       <TableCell align="right">{row.cantidad}</TableCell>
-                      <TableCell align="right totalAmount">
+                      <TableCell align="right" className="totalAmount">
                         <div className="amountShow"> {row.amount} </div>
                         <div>{row.total}</div>
                       </TableCell>

@@ -62,3 +62,8 @@
 1.09
 - Precio real del producto añadido a la tabla en rojo y tachado.
 - Campo nombre comentado (Calc. Avanzada).
+
+1.091
+- toFixed(2) colombian currency
+- className added fixed on ListItems
+- Total price updated .2% from "25%" to "27%"

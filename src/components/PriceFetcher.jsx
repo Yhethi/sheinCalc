@@ -13,12 +13,15 @@ const PriceFetcher = ({ sumaTotal, priceBs, setPriceBs }) => {
         let value;
         if (isDev === "true") {
           const { data } = await axios.get("http://localhost:5000/api/prices");
-          value = data;
+          value = {
+            price: "44.000",
+          };
         } else {
           const { data } = await axios.get("/api/prices");
           value = data;
         }
         let data = value;
+
         let precio = parseFloat(data.price);
         if (!isNaN(precio)) {
           // console.log("Precio Actual Binance: ",precio);

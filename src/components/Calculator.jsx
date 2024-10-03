@@ -301,14 +301,14 @@ const Calculator = ({
       }
       let total = add;
       add = 0;
-      total = total + total * 0.25;
+      total = total + total * 0.27;
       total = total * cantidad;
       total = parseFloat(total.toFixed(2));
       setTotalFormulaBasica(total);
       let dollarBs = total * priceBs;
       let dollarPesos = total * 4000;
       setTotalBs(dollarBs.toFixed(2));
-      setTotalPesos(dollarPesos);
+      setTotalPesos(dollarPesos.toFixed(2));
     }
   };
 
