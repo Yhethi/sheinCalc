@@ -20,6 +20,7 @@ function App() {
   const [sumaTotal, setSumaTotal] = useState(0);
   const [sumaTotalBs, setSumaTotalBs] = useState(0);
   const [sumaTotalPesos, setSumaTotalPesos] = useState(0);
+  const [cantidadTotal, setCantidadTotal] = useState(0);
   const [user, setUser] = useState("");
   const [excelExported, setExcelExported] = useState(false);
   const [basic, setBasic] = useState(true);
@@ -56,15 +57,18 @@ function App() {
         let doSuma2 = 0;
         let doSumaBs = 0;
         let doSumaPesos = 0;
+        let doSumaCantidad = 0;
         // console.log("saveBasicItems: ", saveBasicItems);
         saveBasicItems.forEach((element) => {
           doSuma2 = doSuma2 + element.total;
           doSumaBs = doSumaBs + parseFloat(element.totalBs);
           doSumaPesos = doSumaPesos + parseFloat(element.totalPesos);
+          doSumaCantidad = doSumaCantidad + parseFloat(element.cantidad);
         });
         setSumaTotal(parseFloat(doSuma2).toFixed(2));
         setSumaTotalBs(parseFloat(doSumaBs).toFixed(2));
         setSumaTotalPesos(parseInt(doSumaPesos));
+        setCantidadTotal(parseInt(doSumaCantidad));
       } else {
         setCharge(false);
       }
@@ -167,6 +171,7 @@ function App() {
           totalPesos={totalPesos}
           setTotalPesos={setTotalPesos}
           sumaTotalPesos={sumaTotalPesos}
+          cantidadTotal={cantidadTotal}
         />
       )) ||
         (charge && basic && (
@@ -192,6 +197,7 @@ function App() {
               totalPesos={totalPesos}
               setTotalPesos={setTotalPesos}
               sumaTotalPesos={sumaTotalPesos}
+              cantidadTotal={cantidadTotal}
             />
           </>
         ))}
@@ -205,9 +211,9 @@ function App() {
         sumaTotal={sumaTotal}
         priceBs={priceBs}
         setPriceBs={setPriceBs}
-      />      
+      />
       <div className="footer_text zIndexUp">
-        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.091</p>
+        Hecho por Yhethi +584124706698 <p className="v_foot zIndexUp">v1.1</p>
       </div>
     </div>
   );

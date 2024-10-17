@@ -38,6 +38,7 @@ const ListItems = ({
   totalPesos,
   setTotalPesos,
   sumaTotalPesos,
+  cantidadTotal,
 }) => {
   const [load, setLoad] = useState(false);
 
@@ -135,7 +136,9 @@ const ListItems = ({
             <TableFooter>
               <TableRow>
                 <TableCell></TableCell>
-                <TableCell></TableCell>
+                <TableCell align="right">
+                  <h3>{cantidadTotal}</h3>
+                </TableCell>
                 <TableCell align="right">
                   <h3>${sumaTotal}</h3>
                 </TableCell>
@@ -184,7 +187,9 @@ const ListItems = ({
                 </TableBody>
                 <TableFooter>
                   <TableRow>
-                    <TableCell></TableCell>
+                    <TableCell align="right">
+                      <h3>{cantidadTotal}</h3>
+                    </TableCell>
                     <TableCell align="right">
                       <h3>${sumaTotal}</h3>
                     </TableCell>

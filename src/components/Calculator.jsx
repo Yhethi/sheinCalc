@@ -123,7 +123,7 @@ const Calculator = ({
     }
     let total = add;
     add = 0;
-    total = total + total * 0.25;
+    total = total + total * 0.27;
     total = total * cantidad;
     total = parseFloat(total.toFixed(2));
 
@@ -196,7 +196,7 @@ const Calculator = ({
     }
     let total = add;
     add = 0;
-    total = total + total * 0.25;
+    total = total + total * 0.27;
     total = total * cantidad;
     total = parseFloat(total.toFixed(2));
 

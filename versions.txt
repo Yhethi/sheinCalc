@@ -67,3 +67,8 @@
 - toFixed(2) colombian currency
 - className added fixed on ListItems
 - Total price updated .2% from "25%" to "27%"
+
+1.1
+- Price on total table amount fixed.
+- Added total quantity products.
+- More visible red numbers.
