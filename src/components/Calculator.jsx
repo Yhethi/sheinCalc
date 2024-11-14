@@ -306,7 +306,7 @@ const Calculator = ({
       total = parseFloat(total.toFixed(2));
       setTotalFormulaBasica(total);
       let dollarBs = total * priceBs;
-      let dollarPesos = total * 4000;
+      let dollarPesos = total * 4200;
       setTotalBs(dollarBs.toFixed(2));
       setTotalPesos(dollarPesos.toFixed(2));
     }
@@ -321,7 +321,7 @@ const Calculator = ({
       <div className="cardCalculator">
         <div className="flex_item_center">
           <div className="calculator_type">
-            <button
+            {/* <button
               onClick={() => {
                 handleChangeBasic(true);
               }}
@@ -334,7 +334,7 @@ const Calculator = ({
               }}
             >
               AVANZADA
-            </button>
+            </button> */}
           </div>
           {(basic && (
             <>

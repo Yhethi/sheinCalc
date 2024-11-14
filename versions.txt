@@ -72,3 +72,7 @@
 - Price on total table amount fixed.
 - Added total quantity products.
 - More visible red numbers.
+
+1.11
+- Price COP to 4200
+- Disabled avanced calculator button
